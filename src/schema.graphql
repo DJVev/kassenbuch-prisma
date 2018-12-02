@@ -3,6 +3,7 @@ scalar DateTime
 type Query {
   me: User
   entry: Entry
+  users: [User]
 }
 
 type Mutation {

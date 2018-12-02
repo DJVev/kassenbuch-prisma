@@ -12,10 +12,19 @@ export namespace QueryResolvers {
 
   export type EntryResolver = (parent: undefined, args: {}, ctx: Context, info: GraphQLResolveInfo) => Entry | null | Promise<Entry | null>;
 
+  export type UsersResolver = (
+    parent: undefined,
+    args: {},
+    ctx: Context,
+    info: GraphQLResolveInfo
+  ) => User[] | null | Promise<User[] | null>;
+
   export interface Type {
     me: (parent: undefined, args: {}, ctx: Context, info: GraphQLResolveInfo) => User | null | Promise<User | null>;
 
     entry: (parent: undefined, args: {}, ctx: Context, info: GraphQLResolveInfo) => Entry | null | Promise<Entry | null>;
+
+    users: (parent: undefined, args: {}, ctx: Context, info: GraphQLResolveInfo) => User[] | null | Promise<User[] | null>;
   }
 }
 

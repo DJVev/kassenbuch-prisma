@@ -16,4 +16,15 @@ export interface User {
   lastName: String;
   email: String;
   password: String;
+  entries: [Entry];
+}
+
+export interface Entry {
+  id: String;
+  amount: Number;
+  currency: String;
+  note: String;
+  createdBy: User;
+  createdAt: Date;
+  updatedAt: Date;
 }

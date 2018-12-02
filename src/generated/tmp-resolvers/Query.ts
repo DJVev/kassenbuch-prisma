@@ -11,4 +11,7 @@ export const Query: QueryResolvers.Type = {
   entry: (parent, args, ctx) => {
     throw new Error('Resolver not implemented');
   },
+  users: (parent, args, ctx) => {
+    throw new Error('Resolver not implemented');
+  },
 };

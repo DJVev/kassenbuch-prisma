@@ -12,4 +12,7 @@ export const Query: QueryResolvers.Type = {
   entry: (parent, { id }: any, context) => {
     return context.prisma.entry({ id });
   },
+  users: (parent: any, args: any, context: Context) => {
+    return context.prisma.users();
+  },
 };
