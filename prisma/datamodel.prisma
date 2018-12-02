@@ -1,0 +1,18 @@
+type User {
+  id: ID! @unique
+  firstName: String!
+  lastName: String!
+  email: String! @unique
+  password: String!
+  entries: [Entry!]
+}
+
+type Entry {
+  id: ID! @unique
+  amount: Float!
+  currency: String! @default(value: "EUR")
+  note: String
+  createdBy: User!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
