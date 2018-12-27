@@ -6,4 +6,7 @@ export const User: UserResolvers.Type = {
   entries: ({ id }, args, ctx) => {
     return ctx.prisma.user({ id }).entries();
   },
+  projects: ({ id }, args, ctx) => {
+    return ctx.prisma.user({ id }).projects();
+  },
 };

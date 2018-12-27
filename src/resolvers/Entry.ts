@@ -6,4 +6,7 @@ export const Entry: EntryResolvers.Type = {
   createdBy: ({ id }, args, ctx) => {
     return ctx.prisma.entry({ id }).createdBy();
   },
+  project: ({ id }, args, ctx) => {
+    return ctx.prisma.entry({ id }).project();
+  },
 };

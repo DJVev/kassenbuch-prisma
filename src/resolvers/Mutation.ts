@@ -5,7 +5,10 @@ import { APP_SECRET } from '../utils';
 
 export const Mutation: MutationResolvers.Type = {
   ...MutationResolvers.defaultResolvers,
-  signup: async (_: any, { firstName, lastName, email, password }, context: any) => {
+  signup: async (_: any, { firstName, lastName, email, password, projectName }, context: any) => {
+    const project = await context.prisma.project({ name: projectName });
+    console.log(project);
+    if (!project) throw new Error('Project not found');
     const hashedPassword = await hash(password, 10);
     const user = await context.prisma.createUser({
       firstName,

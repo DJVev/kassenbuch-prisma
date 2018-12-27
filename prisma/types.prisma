@@ -1,0 +1,33 @@
+type User {
+  id: ID! @unique
+  firstName: String!
+  lastName: String!
+  email: String! @unique
+  password: String!
+  role: Roles!
+  entries: [Entry!]! @relation(name: "UserEntries")
+  projects: [Project!]! @relation(name: "UserProjects")
+}
+
+type Project {
+  id: ID! @unique
+  name: String! @unique
+  users: [User!]! @relation(name: "ProjectMembers")
+  entries: [Entry!]! @relation(name: "ProjectEntries")
+}
+
+type Entry {
+  id: ID! @unique
+  subject: String!
+  amount: Float!
+  currency: String! @default(value: "EUR")
+  entryDate: DateTime!
+  receiptDate: DateTime!
+  receiptNumber: String! @unique
+  project: Project! @relation(name: "ConnectedProject")
+  receipt: String
+  comment: String
+  createdBy: User! @relation(name: "EntryUser")
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}

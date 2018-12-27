@@ -1,5 +1,11 @@
 scalar DateTime
 
+enum Roles {
+  Owner
+  Admin
+  Employee
+}
+
 type Query {
   me: User
   entry: Entry
@@ -7,8 +13,8 @@ type Query {
 }
 
 type Mutation {
-  signup(email: String!, password: String!, firstName: String, lastName: String): AuthPayload!
-  login(email: String!, password: String!): AuthPayload!
+  signup(email: String!, password: String!, firstName: String, lastName: String, projectName: String): AuthPayload!
+  login(email: String!, password: String!, projectName: String!): AuthPayload!
 }
 
 type AuthPayload {
@@ -22,15 +28,25 @@ type User {
   lastName: String!
   email: String!
   password: String!
+  role: Roles!
   entries: [Entry!]
+  projects: [Project!]
 }
 
 type Entry {
   id: ID!
   amount: Float!
   currency: String!
-  note: String
+  comment: String
   createdBy: User!
   createdAt: DateTime!
   updatedAt: DateTime!
+  project: Project!
+}
+
+type Project {
+  id: ID!
+  name: String!
+  users: [User!]
+  entries: [Entry!]
 }

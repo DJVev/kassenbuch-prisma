@@ -9,4 +9,7 @@ export const Entry: EntryResolvers.Type = {
   createdBy: (parent, args, ctx) => {
     throw new Error('Resolver not implemented');
   },
+  project: (parent, args, ctx) => {
+    throw new Error('Resolver not implemented');
+  },
 };

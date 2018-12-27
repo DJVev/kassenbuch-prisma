@@ -1,15 +1,15 @@
 // This resolver file was scaffolded by github.com/prisma/graphqlgen, DO NOT EDIT.
 // Please do not import this file directly but copy & paste to your application code.
 
-import { UserResolvers } from '../graphqlgen';
+import { ProjectResolvers } from '../graphqlgen';
 
-export const User: UserResolvers.Type = {
-  ...UserResolvers.defaultResolvers,
+export const Project: ProjectResolvers.Type = {
+  ...ProjectResolvers.defaultResolvers,
 
-  entries: (parent, args, ctx) => {
+  users: (parent, args, ctx) => {
     throw new Error('Resolver not implemented');
   },
-  projects: (parent, args, ctx) => {
+  entries: (parent, args, ctx) => {
     throw new Error('Resolver not implemented');
   },
 };
