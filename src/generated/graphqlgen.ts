@@ -159,7 +159,6 @@ export namespace MutationResolvers {
   export interface ArgsLogin {
     email: string;
     password: string;
-    projectName: string;
   }
 
   export type SignupResolver = (
